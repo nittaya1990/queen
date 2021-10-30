@@ -409,7 +409,6 @@ def menu():
 	banner()
 	print
 	print
-	jalan (' \33[3;1m\033[1;97mSelamat datang.....\33[0;1m')
 	
 	print
 	print" \033[1;96m[\033[1;97m01\033[1;96m] \033[1;97mCrack dari ID publik"
