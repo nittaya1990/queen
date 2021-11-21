@@ -298,15 +298,7 @@ def cekakun():
 def pilihlogin():
 	os.system("clear")
 	try:
-		__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
-		if __token__ in ['',' ']:
-			exit("%s«%s!%s Jangan kosong"%(K,M,K))
-		cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
-		kz=json.loads(cekz.text);nama=kz['name']
-		save__=open('_____tokenz_____', 'w');save__.write(__token__);save__.close()
-		__follow__()
-	except KeyError:
-		exit("%s«%s!%s Token Salah"%(K,M,K))
+		token = open('login.txt','r')
 		menu()
 	except (KeyError,IOError):
 		logo()
