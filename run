@@ -287,7 +287,7 @@ def cekakun():
 		menu()
 		
 #------->login token jangan lupa masukin token facebook jangan token listrik kontol<-------#    
-ef pilihlogin():
+def pilihlogin():
 	os.system("clear")
 	try:
 		__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
