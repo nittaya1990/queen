@@ -315,16 +315,16 @@ def gen():
 	print
 	cookie = raw_input(" \033[1;97m[\033[1;96m+[\033[1;97m] \033[1;96mMasukan Cookies \033[1;97m: ")
 	try:
-		data = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers = {
-		'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36', # Jangan Di Ganti Ea Anjink.
-		'referer'                   : 'https://m.facebook.com/',
-		'host'                      : 'm.facebook.com',
-		'origin'                    : 'https://m.facebook.com',
-		'upgrade-insecure-requests' : '1',
-		'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-		'cache-control'             : 'max-age=0',
-		'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-		'content-type'              : 'text/html; charset=utf-8'
+		data=requests.get('https://business.facebook.com/business_locations', headers = {
+				'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
+				'referer'                   : 'https://www.facebook.com/',
+				'host'                      : 'business.facebook.com',
+				'origin'                    : 'https://business.facebook.com',
+				'upgrade-insecure-requests' : '1',
+				'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+				'cache-control'             : 'max-age=0',
+				'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+				'content-type'              : 'text/html; charset=utf-8'
 		}, cookies = {
 		'cookie'                    : cookie
 		})
