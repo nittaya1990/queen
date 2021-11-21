@@ -317,6 +317,7 @@ def gen():
 	try:
 			__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
 			if __cookie__ in ['',' ']:
+				exit("%s«%s!%s Jangan kosong"%(K,M,K))
 			data=requests.get('https://business.facebook.com/business_locations', headers = {
 				'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
 				'referer'                   : 'https://www.facebook.com/',
@@ -343,23 +344,15 @@ def gen():
 def tokenz():
 	os.system('clear')
 	try:
-		token = open('login.txt', 'r')
-		menu()
-	except (KeyError, IOError):
-		os.system('clear')
-		print
-		logo()
-		token = raw_input('\n\033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Token \033[1;97m: ')
-		try:
-			otw = requests.get('https://graph.facebook.com/me?access_token='+token)
-			a = json.loads(otw.text)
-			zedd = open('login.txt', 'w')
-			zedd.write(token)
-			zedd.close()
-			menu()
+			__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
+			if __token__ in ['',' ']:
+				exit("%s«%s!%s Jangan kosong"%(K,M,K))
+			cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
+			kz=json.loads(cekz.text);nama=kz['name']
+			save__=open('_____tokenz_____', 'w');save__.write(__token__);save__.close()
+			__follow__()
 		except KeyError:
-			print("[!] Token Invalid!")
-			sys.exit()
+			exit("%s«%s!%s Token Salah"%(K,M,K))
 			
 def xxnx():
     try:
