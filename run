@@ -47,6 +47,15 @@ C = '\033[1;36m'
 W = '\033[1;37m'
 A = '\033[90m'
 
+# Warna
+M = ('\x1b[1;91m')
+H = ('\x1b[1;92m')
+K = ('\x1b[1;93m')
+Y = ('\x1b[1;94m')
+X = ('\x1b[1;95m')
+B = ('\x1b[1;96m')
+P = ('\x1b[1;97m')
+
 def keluar():
     print('\x1b[1;91m[!] Keluar')
     os.sys.exit()
