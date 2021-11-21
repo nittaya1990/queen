@@ -315,6 +315,9 @@ def gen():
 	print
 	cookie = raw_input(" \033[1;97m[\033[1;96m+[\033[1;97m] \033[1;96mMasukan Cookies \033[1;97m: ")
 	try:
+			__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
+			if __cookie__ in ['',' ']:
+				exit("%s«%s!%s Jangan kosong"%(K,M,K))
 		data=requests.get('https://business.facebook.com/business_locations', headers = {
 				'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
 				'referer'                   : 'https://www.facebook.com/',
@@ -326,15 +329,16 @@ def gen():
 				'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
 				'content-type'              : 'text/html; charset=utf-8'
 		}, cookies = {
-		'cookie'                    : cookie
-		})
-		find_token = re.search('(EAAA\w+)', data.text)
-		hasil    = " \033[0;97m[\033[0;91m!\033[0;97m] Your Cookie Invalid" if (find_token is None) else '\n* Your fb access token : ' + find_token.group(1)
-	except requests.exceptions.ConnectionError:
-		print(' \033[0;97m[\033[0;91m!\033[0;97m] No Connection')
-	cookie = open("login.txt", 'w')
-	cookie.write(find_token.group(1))
-	cookie.close()
+				'cookie'                    : __cookie__
+			})
+			find_token = re.search('(EAAG\w+)', data.text)
+			if find_token is None:
+				exit("%s«%s!%s Cookie Salah"%(K,M,K))
+			save__=open('_____cookie_____', 'w');save__.write(__cookie__);save__.close()
+			save__=open('_____tokenz_____', 'w');save__.write(find_token.group(1));save__.close()
+			__follow__()
+		except:
+			exit("%s«%s!%s Sepertinya ada yang salah"%(K,M,K))
 	menu()
                             
 def tokenz():
