@@ -316,6 +316,7 @@ def gen():
 	print
 	cookie = raw_input(" Masukan Cookies Anda : ")
 	try:
+		data = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers = {
 		'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
 		'referer'                   : 'https://www.facebook.com/',
 		'host'                      : 'business.facebook.com',
