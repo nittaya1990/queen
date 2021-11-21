@@ -296,61 +296,76 @@ def cekakun():
 		
 #------->login token jangan lupa masukin token facebook jangan token listrik kontol<-------#    
 def pilihlogin():
+	os.system("clear")
+	try:
+		token = open('login.txt','r')
+		menu()
+	except (KeyError,IOError):
+		logo()
+		print
+		print("\033[1;96m[\033[1;97m01\033[1;96m] \033[1;97mLogin via TOKEN")
+		print("\033[1;96m[\033[1;97m02\033[1;96m] \033[1;97mLogin via COOKIE")
+		print("\033[1;96m[\033[1;97m03\033[1;96m] \033[1;97mVideo cara mengambil TOKEN")
+		print("\033[1;96m[\033[1;97m04\033[1;96m] \033[1;97mVideo cara mengambil COOKIE")
+		bct = raw_input("\n\033[1;96m[\033[1;97m?\033[1;96m] PILIH :\033[1;93m ")
+		if bct == "":
+			pilihlogin()
+		elif bct == "1":
+			tokenz()
+		elif bct == "2":
+			gen()
+		elif bct == "3":
+			os.system("xdg-open https://www.youtube.com/watch?v=Q4I0mOkGjFE")
+		elif bct == "4":
+			os.system("xdg-open https://www.youtube.com/watch?v=MGQYs_UZSxQ")
+def gen():
 	os.system('clear')
-	os.system('echo -e "%s  ___\n |   \ _  _ _ __  _ __\n | |) | || | ‘  \| ‘_.\ \n%s |___/ \_,_|_|_|_| .__/\n                 |_|\n"'%(P,H))
-	print("%s«%s!%s Anda diwajibkan menggunakan akun yang tidak terpakai/akun baru."%(K,M,P))
-	print("\n%s1%s»%s Login pakai token"%(H,B,P))
-	print("%s2%s»%s Login pakai cookie"%(H,B,P))
-	print("%s3%s»%s Cara dapat token or cookie"%(H,B,P))
-	print("%s4%s»%s Keluar"%(M,K,P))
-	__login=raw_input("\n%s«%s?%s Choose :%s "%(B,H,P,X))
-	if __login in['']:
-		exit("%s«%s!%s Wrong input"%(K,M,K))
-	elif __login in ['1','01']:
-		try:
-			__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
-			if __token__ in ['',' ']:
-				exit("%s«%s!%s Jangan kosong"%(K,M,K))
-			cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
-			kz=json.loads(cekz.text);nama=kz['name']
-			save__=open('_____tokenz_____', 'w');save__.write(__token__);save__.close()
-			__follow__()
-		except KeyError:
-			exit("%s«%s!%s Token Salah"%(K,M,K))
-	elif __login in ['2','02']:
-		try:
-			__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
-			if __cookie__ in ['',' ']:
-				exit("%s«%s!%s Jangan kosong"%(K,M,K))
-			data=requests.get('https://business.facebook.com/business_locations', headers = {
-				'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
-				'referer'                   : 'https://www.facebook.com/',
-				'host'                      : 'business.facebook.com',
-				'origin'                    : 'https://business.facebook.com',
-				'upgrade-insecure-requests' : '1',
-				'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-				'cache-control'             : 'max-age=0',
-				'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-				'content-type'              : 'text/html; charset=utf-8'
-			}, cookies = {
-				'cookie'                    : __cookie__
-			})
-			find_token = re.search('(EAAG\w+)', data.text)
-			if find_token is None:
-				exit("%s«%s!%s Cookie Salah"%(K,M,K))
-			save__=open('_____cookie_____', 'w');save__.write(__cookie__);save__.close()
-			save__=open('_____tokenz_____', 'w');save__.write(find_token.group(1));save__.close()
-			__follow__()
-		except:
-			exit("%s«%s!%s Sepertinya ada yang salah"%(K,M,K))
-	elif __login in ['3','03']:
-		print("%s«%s!%s Anda akan diarahkan ke browser"%(K,M,P));time.sleep(2)
-		os.system("xdg-open https://youtu.be/3Y6xsMB3wRg");exit()
-	elif __login in ['4','04']:
-		exit()
-	else:
-		exit("%s«%s!%s Wrong input"%(K,M,K))
+	logo()
+	print
+	cookie = raw_input(" \033[1;97m[\033[1;96m+[\033[1;97m] \033[1;96mMasukan Cookies \033[1;97m: ")
+	try:
+		data = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers = {
+		'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36', # Jangan Di Ganti Ea Anjink.
+		'referer'                   : 'https://m.facebook.com/',
+		'host'                      : 'm.facebook.com',
+		'origin'                    : 'https://m.facebook.com',
+		'upgrade-insecure-requests' : '1',
+		'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+		'cache-control'             : 'max-age=0',
+		'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+		'content-type'              : 'text/html; charset=utf-8'
+		}, cookies = {
+		'cookie'                    : cookie
+		})
+		find_token = re.search('(EAAA\w+)', data.text)
+		hasil    = " \033[0;97m[\033[0;91m!\033[0;97m] Your Cookie Invalid" if (find_token is None) else '\n* Your fb access token : ' + find_token.group(1)
+	except requests.exceptions.ConnectionError:
+		print(' \033[0;97m[\033[0;91m!\033[0;97m] No Connection')
+	cookie = open("login.txt", 'w')
+	cookie.write(find_token.group(1))
+	cookie.close()
 	menu()
+                            
+def tokenz():
+	os.system('clear')
+	try:
+		token = open('login.txt', 'r')
+		menu()
+	except (KeyError, IOError):
+		os.system('clear')
+		print
+		logo()
+		token = raw_input('\n\033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Token \033[1;97m: ')
+		try:
+			otw = requests.get('https://graph.facebook.com/me?access_token='+token)
+			a = json.loads(otw.text)
+			zedd = open('login.txt', 'w')
+			zedd.write(token)
+			zedd.close()
+			menu()
+		except KeyError:
+			print("[!] Token Invalid!")
+			sys.exit()
 			
 def xxnx():
     try:
