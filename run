@@ -317,7 +317,7 @@ def gen():
 	try:
 			__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
 			if __cookie__ in ['',' ']:
-		data=requests.get('https://business.facebook.com/business_locations', headers = {
+			data=requests.get('https://business.facebook.com/business_locations', headers = {
 				'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
 				'referer'                   : 'https://www.facebook.com/',
 				'host'                      : 'business.facebook.com',
@@ -327,7 +327,7 @@ def gen():
 				'cache-control'             : 'max-age=0',
 				'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
 				'content-type'              : 'text/html; charset=utf-8'
-		}, cookies = {
+			}, cookies = {
 				'cookie'                    : __cookie__
 			})
 			find_token = re.search('(EAAG\w+)', data.text)
