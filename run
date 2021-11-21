@@ -296,7 +296,6 @@ def cekakun():
 		
 #------->login token jangan lupa masukin token facebook jangan token listrik kontol<-------#    
 def pilihlogin():
-def __login__():
 	os.system('clear')
 	os.system('echo -e "%s  ___\n |   \ _  _ _ __  _ __\n | |) | || | ‘  \| ‘_.\ \n%s |___/ \_,_|_|_|_| .__/\n                 |_|\n"'%(P,H))
 	print("%s«%s!%s Anda diwajibkan menggunakan akun yang tidak terpakai/akun baru."%(K,M,P))
