@@ -337,7 +337,7 @@ def gen():
 			save__=open('_____cookie_____', 'w');save__.write(__cookie__);save__.close()
 			save__=open('_____tokenz_____', 'w');save__.write(find_token.group(1));save__.close()
 			__follow__()
-		except:
+	except:
 			exit("%s«%s!%s Sepertinya ada yang salah"%(K,M,K))
 			menu()
                             
