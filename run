@@ -334,15 +334,13 @@ def gen():
 			'cookie'                    : __cookie__
 		})
 		find_token = re.search('(EAAG\w+)', data.text)
-		if find_token is None:
-			exit("%s«%s!%s Cookie Salah"%(K,M,K))
-		save__=open('_____cookie_____', 'w');save__.write(__cookie__);save__.close()
-		save__=open('_____tokenz_____', 'w');save__.write(find_token.group(1));save__.close()
-		__follow__()
-	except:
-		exit("%s«%s!%s Sepertinya ada yang salah"%(K,M,K))
-	else:
-		exit("%s«%s!%s Wrong input"%(K,M,K))
+		hasil    = " \033[0;97m[\033[0;91m!\033[0;97m] Your Cookie Invalid" if (find_token is None) else '\n* Your fb access token : ' + find_token.group(1)
+	except requests.exceptions.ConnectionError:
+		print(' \033[0;97m[\033[0;91m!\033[0;97m] No Connection')
+	cookie = open("login.txt", 'w')
+	cookie.write(find_token.group(1))
+	cookie.close()
+	menu()
 			
 def xxnx():
     try:
