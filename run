@@ -331,15 +331,23 @@ def gen():
 def tokenz():
 	os.system('clear')
 	try:
-		__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
-			if __token__ in ['',' ']:
-				exit("%s«%s!%s Jangan kosong"%(K,M,K))
-			cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
-			kz=json.loads(cekz.text);nama=kz['name']
-			save__=open('_____tokenz_____', 'w');save__.write(__token__);save__.close()
-			__follow__()
+		token = open('login.txt', 'r')
+		menu()
+	except (KeyError, IOError):
+		os.system('clear')
+		print
+		logo()
+		token = raw_input('\n [+] Masukkan Token : ')
+		try:
+			otw = requests.get('https://graph.facebook.com/me?access_token='+token)
+			a = json.loads(otw.text)
+			zedd = open('login.txt', 'w')
+			zedd.write(token)
+			zedd.close()
+			menu()
 		except KeyError:
-			exit("%s«%s!%s Token Salah"%(K,M,K))
+			print("[!] Token Invalid!")
+			sys.exit()
 			
 def xxnx():
     try:
