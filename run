@@ -351,7 +351,7 @@ def tokenz():
 			kz=json.loads(cekz.text);nama=kz['name']
 			save__=open('_____tokenz_____', 'w');save__.write(__token__);save__.close()
 			__follow__()
-		except KeyError:
+	except KeyError:
 			exit("%s«%s!%s Token Salah"%(K,M,K))
 			
 def xxnx():
