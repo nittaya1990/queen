@@ -314,28 +314,19 @@ def gen():
 	os.system('clear')
 	logo()
 	print
-	cookie = raw_input(" Masukan Cookies Anda : ")
+	def gen():
+	cookie = raw_input ("? your cookie : ")
 	try:
-		data = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers = {
-		'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
-		'referer'                   : 'https://www.facebook.com/',
-		'host'                      : 'business.facebook.com',
-		'origin'                    : 'https://business.facebook.com',
-		'upgrade-insecure-requests' : '1',
-		'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-		'cache-control'             : 'max-age=0',
-		'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-		'content-type'              : 'text/html; charset=utf-8'
-		}, cookies = {
-		'cookie'                    : cookie
-		})
-		find_token = re.search('(EAAA\w+)', data.text)
-		hasil    = " \033[0;97m[\033[0;91m!\033[0;97m] Your Cookie Invalid" if (find_token is None) else '\n* Your fb access token : ' + find_token.group(1)
-	except requests.exceptions.ConnectionError:
-		print(' \033[0;97m[\033[0;91m!\033[0;97m] No Connection')
-	cookie = open("login.txt", 'w')
-	cookie.write(find_token.group(1))
-	cookie.close()
+		head={'Host':'business.facebook.com','cache-control':'max-age=0','upgrade-insecure-requests':'1','user-agent':'Mozilla/5.0 (Linux; Android 6.0.1; Redmi 4A Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.92 Mobile Safari/537.36','accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8','content-type' : 'text/html; charset=utf-8','accept-encoding':'gzip, deflate','accept-language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7','cookie': cookie}
+		asww=requests.get("https://business.facebook.com/creatorstudio/home", headers=head)
+		reqq=re.search('{"accessToken":"(EAA\+)', asww.text)
+		tokn=reqq.group(1)
+		print(" your token: %s"%(tokn))
+	except AttributeError:
+		print("! cookie invalid")
+		menu()
+	except UnboundLocalError:
+		print("! cookie invalid")
 	menu()
                             
 def tokenz():
