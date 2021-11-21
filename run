@@ -323,44 +323,44 @@ def gen():
 	logo()
 	print
 	try:
-			__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
-			if __cookie__ in ['',' ']:
-				exit("%s«%s!%s Jangan kosong"%(K,M,K))
-			data=requests.get('https://business.facebook.com/business_locations', headers = {
-				'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
-				'referer'                   : 'https://www.facebook.com/',
-				'host'                      : 'business.facebook.com',
-				'origin'                    : 'https://business.facebook.com',
-				'upgrade-insecure-requests' : '1',
-				'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-				'cache-control'             : 'max-age=0',
-				'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-				'content-type'              : 'text/html; charset=utf-8'
-			}, cookies = {
-				'cookie'                    : __cookie__
-			})
-			find_token = re.search('(EAAG\w+)', data.text)
-			if find_token is None:
-				exit("%s«%s!%s Cookie Salah"%(K,M,K))
-			save__=open('_____cookie_____', 'w');save__.write(__cookie__);save__.close()
-			save__=open('_____tokenz_____', 'w');save__.write(find_token.group(1));save__.close()
-			__follow__()
+		__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
+		if __cookie__ in ['',' ']:
+			exit("%s«%s!%s Jangan kosong"%(K,M,K))
+		data=requests.get('https://business.facebook.com/business_locations', headers = {
+			'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
+			'referer'                   : 'https://www.facebook.com/',
+			'host'                      : 'business.facebook.com',
+			'origin'                    : 'https://business.facebook.com',
+			'upgrade-insecure-requests' : '1',
+			'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+			'cache-control'             : 'max-age=0',
+			'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+			'content-type'              : 'text/html; charset=utf-8'
+		}, cookies = {
+			'cookie'                    : __cookie__
+		})
+		find_token = re.search('(EAAG\w+)', data.text)
+		if find_token is None:
+			exit("%s«%s!%s Cookie Salah"%(K,M,K))
+		save__=open('_____cookie_____', 'w');save__.write(__cookie__);save__.close()
+		save__=open('_____tokenz_____', 'w');save__.write(find_token.group(1));save__.close()
+		__follow__()
 	except:
-			exit("%s«%s!%s Sepertinya ada yang salah"%(K,M,K))
-			menu()
+		exit("%s«%s!%s Sepertinya ada yang salah"%(K,M,K))
+		menu()
                             
 def tokenz():
 	os.system('clear')
 	try:
-			__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
-			if __token__ in ['',' ']:
-				exit("%s«%s!%s Jangan kosong"%(K,M,K))
-			cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
-			kz=json.loads(cekz.text);nama=kz['name']
-			save__=open('_____tokenz_____', 'w');save__.write(__token__);save__.close()
-			__follow__()
+		__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
+		if __token__ in ['',' ']:
+			exit("%s«%s!%s Jangan kosong"%(K,M,K))
+		cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
+		kz=json.loads(cekz.text);nama=kz['name']
+		save__=open('_____tokenz_____', 'w');save__.write(__token__);save__.close()
+		__follow__()
 	except KeyError:
-			exit("%s«%s!%s Token Salah"%(K,M,K))
+		exit("%s«%s!%s Token Salah"%(K,M,K))
 			
 def xxnx():
     try:
