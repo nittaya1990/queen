@@ -322,7 +322,6 @@ def gen():
 	os.system('clear')
 	logo()
 	print
-	cookie = raw_input(" \033[1;97m[\033[1;96m+[\033[1;97m] \033[1;96mMasukan Cookies \033[1;97m: ")
 	try:
 			__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
 			if __cookie__ in ['',' ']:
