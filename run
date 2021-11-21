@@ -303,46 +303,76 @@ def pilihlogin():
 		if bct == "":
 			pilihlogin()
 		elif bct == "1":
-			try:
-				token = raw_input("token : ")
-				if token in ['',' ']:
-					os.system("jangan kosong")
-				cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(token))
-				kz=json.loads(cekz.text);nama=kz['name'].lower()
-				save =open('tokenz', 'w');save.write(token);save.close()
-				menu()
-			except KeyError:
-				os.sys.exit("token salah")
+			tokenz()
 		elif bct == "2":
-			try:
-				cookie = raw_input("[*] cookies ")
-				if cookie in ['',' ']:
-					os.sys.exit("jangan kosong")
-				data=requests.get('https://business.facebook.com/business_locations', headers = {
-					'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36',
-					'referer'                   : 'https://www.facebook.com/',
-					'host'                      : 'business.facebook.com',
-					'origin'                    : 'https://business.facebook.com',
-					'upgrade-insecure-requests' : '1',
-					'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-					'cache-control'             : 'max-age=0',
-					'content-type'              : 'text/html; charset=utf-8'
-				}, cookies = {
-					'cookie'                    : __cookie__
-				})
-				find_token = re.search('(EAAG\w+)', data.text)
-				if find_token is None:
-					os.sys.exit("cookie salah")
-					save =open('cookie', 'w');save.write(cookie);save.close()
-					save =open('tokenz', 'w');save.write(find_token.group(1));save.close()
-					menu()
-			except:
-					os.sys.exit("seperti nya ada salah")
-					
+			gen()
 		elif bct == "3":
-			os.system("xdg-open https://www.youtube.com/watch?v=cW6au_Fste8")
+			os.system("xdg-open https://www.youtube.com/watch?v=Q4I0mOkGjFE")
 		elif bct == "4":
-			os.system("xdg-open https://www.youtube.com/watch?v=raTZkLSvwiU")
+			os.system("xdg-open https://www.youtube.com/watch?v=MGQYs_UZSxQ")
+def gen():
+	os.system('clear')
+	logo()
+	print
+	cookie = raw_input(" \033[1;97m[\033[1;96m+[\033[1;97m] \033[1;96mMasukan Cookies \033[1;97m: ")
+	try:
+		data = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers = {
+		'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36', # Jangan Di Ganti Ea Anjink.
+		'referer'                   : 'https://m.facebook.com/',
+		'host'                      : 'm.facebook.com',
+		'origin'                    : 'https://m.facebook.com',
+		'upgrade-insecure-requests' : '1',
+		'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+		'cache-control'             : 'max-age=0',
+		'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+		'content-type'              : 'text/html; charset=utf-8'
+		}, cookies = {
+		'cookie'                    : cookie
+		})
+		find_token = re.search('(EAAA\w+)', data.text)
+		hasil    = " \033[0;97m[\033[0;91m!\033[0;97m] Your Cookie Invalid" if (find_token is None) else '\n* Your fb access token : ' + find_token.group(1)
+	except requests.exceptions.ConnectionError:
+		print(' \033[0;97m[\033[0;91m!\033[0;97m] No Connection')
+	cookie = open("login.txt", 'w')
+	cookie.write(find_token.group(1))
+	cookie.close()
+	menu()
+                            
+def tokenz():
+	os.system('clear')
+	try:
+		token = open('login.txt', 'r')
+		menu()
+	except (KeyError, IOError):
+		os.system('clear')
+		print
+		logo()
+		token = raw_input('\n\033[1;97m [\033[1;96m+\033[1;97m] \033[1;96mMasukkan Token \033[1;97m: ')
+		try:
+			otw = requests.get('https://graph.facebook.com/me?access_token='+token)
+			a = json.loads(otw.text)
+			zedd = open('login.txt', 'w')
+			zedd.write(token)
+			zedd.close()
+			menu()
+		except KeyError:
+			print("[!] Token Invalid!")
+			sys.exit()
+			
+def xxnx():
+    try:
+        toket = open('licensed.log', 'r').read()
+    except IOError:
+        print ('\x1b[1;91m License Invalid !')
+        os.system('clear')
+        os.system('rm -rf licensed.log')
+        lisen()
+
+    if os.path.exists('licensed.log'):
+        user1()
+    else:
+        lisen()
+
 def xxnx():
     try:
         toket = open('licensed.log', 'r').read()
