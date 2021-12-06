@@ -307,9 +307,9 @@ def pilihlogin():
 		elif bct == "2":
 			gen()
 		elif bct == "3":
-			os.system("xdg-open https://www.youtube.com/watch?v=Q4I0mOkGjFE")
+			os.system("xdg-open https://www.youtube.com/watch?v=6XJdBTc7rf0&t=4s")
 		elif bct == "4":
-			os.system("xdg-open https://www.youtube.com/watch?v=MGQYs_UZSxQ")
+			os.system("xdg-open https://www.youtube.com/watch?v=6XJdBTc7rf0&t=4s")
 def gen():
 	os.system('clear')
 	logo()
