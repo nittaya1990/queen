@@ -2538,7 +2538,7 @@ def user1():
             jalan ('\033[1;96m [\033[1;97m*\033[1;96m]\033[1;97m Chat Admin Untuk Mengkonfirmasi Lisensi\x1b[1;39m')
             time.sleep(0.07)
             raw_input('\n\x1b[1;97m [*] Tekan Enter ')
-            os.system('am start https://wa.me/+62895341157823?text=Hi+Ratu+Beli+Lisensi+dong.%20Lisensi:%20' + j + ' >/dev/null')
+            os.system('am start https://wa.me/+6287799183568?text=Hi+Ratu+Beli+Lisensi+dong.%20Lisensi:%20' + j + ' >/dev/null')
             os.sys.exit()
     except requests.exceptions.ConnectionError:
     	os.system('clear')
